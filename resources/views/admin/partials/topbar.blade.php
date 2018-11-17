@@ -12,12 +12,13 @@
                     <i class="search-icon-close ti-close pdd-right-10"></i>
                 </a>
             </li>
-            <li class="search-input">
-                <input class="form-control" type="text" placeholder="Search...">
+            <li class="">
+                <a class="fsz-md" href="">@yield('page-header')</a>
             </li>
+
         </ul>
         <ul class="nav-right">
-            <li class="notifications dropdown">
+            {{-- <li class="notifications dropdown">
                 <span class="counter bgc-red">3</span>
                 <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
                     <i class="ti-bell"></i>
@@ -180,7 +181,7 @@
                         </span>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="dropdown">
                 <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
                     <div class="peer mR-10">
@@ -191,7 +192,7 @@
                     </div>
                 </a>
                 <ul class="dropdown-menu fsz-sm">
-                    <li>
+                    {{-- <li>
                         <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-settings mR-10"></i>
                             <span>Setting</span>
@@ -209,7 +210,7 @@
                             <span>Messages</span>
                         </a>
                     </li>
-                    <li role="separator" class="divider"></li>
+                    <li role="separator" class="divider"></li> --}}
                     <li>
                         <a href="/logout" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-power-off mR-10"></i>

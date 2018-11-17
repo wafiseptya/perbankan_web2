@@ -16,3 +16,6 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/teller', function () {
+    return view('admin.teller.teller-index');
+});
