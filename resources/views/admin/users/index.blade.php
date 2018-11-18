@@ -19,6 +19,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+					<th>Role</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+					<th>Role</th>
                     <th>Actions</th>
                 </tr>
             </tfoot>
@@ -36,6 +38,7 @@
                     <tr>
                         <td><a href="{{ route(ADMIN . '.users.edit', $item->id) }}">{{ $item->name }}</a></td>
                         <td>{{ $item->email }}</td>
+						<td>{{ $item->role }}</td>
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">

@@ -5,6 +5,10 @@
 		
 				{!! Form::myInput('email', 'email', 'Email') !!}
 		
+				{!! Form::myInput('text','address','Address')!!}
+				
+				{!! Form::myInput('date','date','Birthday')!!}
+		
 				{!! Form::myInput('password', 'password', 'Password') !!}
 		
 				{!! Form::myInput('password', 'password_confirmation', 'Password again') !!}

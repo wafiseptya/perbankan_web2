@@ -19,3 +19,9 @@ Route::get('/', function () {
 Route::get('/teller', function () {
     return view('admin.teller.teller-index');
 });
+Route::get('/admins', function () {
+    return view('admin.admin.admin-page');
+});
+Route::get('/penarikan', function () {
+    return view('admin.teller.teller-penarikan');
+});
