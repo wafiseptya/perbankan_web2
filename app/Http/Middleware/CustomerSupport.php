@@ -15,6 +15,10 @@ class CustomerSupport
      */
     public function handle($request, Closure $next)
     {
+        if ($request->user() && $request->user()->type != 'cs')
+        {
+            return new Response(view('unauthorized')->with('role', 'CS'));
+        }
         return $next($request);
     }
 }
