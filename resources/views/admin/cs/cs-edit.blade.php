@@ -15,65 +15,96 @@
                           {{ session('alert') }}
                       </div>
                   @endif
-                <form method="POST" action="{{ route('cs.store') }}">
+                <form method="POST" action="{{ route('cs.update', $data->id) }}">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="inputName">Nama</label>
-                      <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
+                      <input type="text" value="{{$data->nama}}" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
                     </div>
                     <div class="form-group col-md-12">
                       <label for="inputName">No Identitas</label>
-                      <input type="number" class="form-control" id="no_identitas" name="no_identitas" placeholder="Nomor Identitas">
+                      <input type="number" value="{{$data->no_identitas}}" class="form-control" id="no_identitas" name="no_identitas" placeholder="Nomor Identitas">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputName">Alamat</label>
-                      <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Lengkap">
+                      <input type="text" value="{{$data->alamat}}" class="form-control" id="alamat" name="alamat" placeholder="Alamat Lengkap">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputName">Kode Pos</label>
-                      <input type="text" class="form-control" id="post_code" name="post_code" placeholder="Kode Pos">
+                      <input type="text" value="{{$data->post_code}}" class="form-control" id="post_code" name="post_code" placeholder="Kode Pos">
                     </div>
                     <div class="form-group col-md-12">
                       <label for="inputName">Nomor Telfon</label>
-                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Telfon">
+                      <input type="text" value="{{$data->phone}}" class="form-control" id="phone" name="phone" placeholder="Nomor Telfon">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputName">Tempat Lahir</label>
-                      <input type="text" class="form-control" id="post_code" name="birth_place" placeholder="Kota Asal Kelahiran">
+                      <input type="text" value="{{$data->birth_place}}" class="form-control" id="post_code" name="birth_place" placeholder="Kota Asal Kelahiran">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputName">Tanggal Lahir</label>
-                      <input type="date" class="form-control" name="birth_date" placeholder="Tanggal Lahir">
+                      <input type="date" value="{{$data->birth_date}}" class="form-control" name="birth_date" placeholder="Tanggal Lahir">
                     </div>
                     <div class="form-group col-md-12">
                       <label for="inputName">Jenis Kelamin</label>
                       <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
-                        <option value="Laki-Laki">Laki-Laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <option value="Laki-Laki"
+                        @if ($data->jenis_kelamin == "Laki-Laki")
+                          selected
+                        @endif
+                        >Laki-Laki</option>
+                        <option value="Perempuan"
+                        @if ($data->jenis_kelamin == "Perempuan")
+                          selected
+                        @endif>Perempuan</option>
                       </select>
                     </div>
                     <div class="form-group col-md-12">
                       <label for="inputName">Nama Ibu Kandung</label>
-                      <input type="text" class="form-control" name="ibu_kandung" placeholder="Nama Lengkap Ibu Kandung">
+                      <input type="text" value="{{$data->ibu_kandung}}" class="form-control" name="ibu_kandung" placeholder="Nama Lengkap Ibu Kandung">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputName">Pendapatan</label>
                       <select name="pendapatan" id="pendapatan" class="form-control">
-                        <option value="value1">< Rp 5 Juta</option>
-                        <option value="value2">Rp 5 Juta - Rp 20 Juta</option>
-                        <option value="value3">Rp 20 Juta - Rp 50 Juta</option>
-                        <option value="value4">> Rp 50 Juta</option>
+                        <option value="value1"
+                        @if ($data->pendapatan == "value1")
+                          selected
+                        @endif>< Rp 5 Juta</option>
+                        <option value="value2"
+                        @if ($data->pendapatan == "value2")
+                          selected
+                        @endif>Rp 5 Juta - Rp 20 Juta</option>
+                        <option value="value3"
+                        @if ($data->pendapatan == "value3")
+                          selected
+                        @endif>Rp 20 Juta - Rp 50 Juta</option>
+                        <option value="value4"
+                        @if ($data->pendapatan == "value4")
+                          selected
+                        @endif>> Rp 50 Juta</option>
                       </select>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputName">Pengeluaran</label>
                       <select name="pengeluaran" id="pengeluaran" class="form-control">
-                        <option value="value1">< Rp 5 Juta</option>
-                        <option value="value2">Rp 5 Juta - Rp 20 Juta</option>
-                        <option value="value3">Rp 20 Juta - Rp 50 Juta</option>
-                        <option value="value4">> Rp 50 Juta</option>
+                        <option value="value1"
+                        @if ($data->pengeluaran == "value1")
+                          selected
+                        @endif>< Rp 5 Juta</option>
+                        <option value="value2"
+                        @if ($data->pengeluaran == "value2")
+                          selected
+                        @endif>Rp 5 Juta - Rp 20 Juta</option>
+                        <option value="value3"
+                        @if ($data->pengeluaran == "value3")
+                          selected
+                        @endif>Rp 20 Juta - Rp 50 Juta</option>
+                        <option value="value4"
+                        @if ($data->pengeluaran == "value4")
+                          selected
+                        @endif>> Rp 50 Juta</option>
                       </select>
                     </div>
                   </div>

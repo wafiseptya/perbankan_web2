@@ -91,7 +91,8 @@ class CSController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.cs.cs-edit');
+        $data = Nasabah::where('id', $id)->first();
+        return view('admin.cs.cs-edit', compact('data'));
     }
 
     /**
@@ -117,6 +118,8 @@ class CSController extends Controller
         $data->pengeluaran = $request->pengeluaran;
         $data->updated_at = Carbon::now();
         $data->save();
+        $id = $data->id;
+        return redirect()->route('cs.show', $id);
     }
 
     /**
