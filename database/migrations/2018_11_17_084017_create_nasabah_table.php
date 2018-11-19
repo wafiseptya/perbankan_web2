@@ -17,11 +17,13 @@ class CreateNasabahTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('alamat');
+            $table->bigInteger('no_identitas');
             $table->string('birth_place');
             $table->date('birth_date');
             $table->string('post_code');
             $table->string('phone');
             $table->string('ibu_kandung');
+            $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->enum('pendapatan', ['value1', 'value2', 'value3', 'value4']);
             $table->enum('pengeluaran', ['value1', 'value2', 'value3', 'value4']);
             $table->timestamps();

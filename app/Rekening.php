@@ -11,4 +11,8 @@ class Rekening extends Model
     {
     	return $this->hasMany('App\Transaksi');
     }
+    public function nasabah()
+    {
+    	return $this->belongsTo('App\Nasabah', 'nasabah_id');
+    }
 }

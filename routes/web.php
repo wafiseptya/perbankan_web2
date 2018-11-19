@@ -36,7 +36,7 @@ Route::get('/forbid', function () {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 // Route::get('/teller', function () {
 //     return view('admin.teller.teller-index');

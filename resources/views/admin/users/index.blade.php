@@ -1,4 +1,4 @@
-@extends('admin.default')
+@extends('admin.cs')
 
 @section('page-header')
     Users <small>{{ trans('app.manage') }}</small>
