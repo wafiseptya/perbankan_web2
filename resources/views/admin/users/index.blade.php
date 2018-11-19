@@ -1,4 +1,4 @@
-@extends('admin.cs')
+@extends('admin.default')
 
 @section('page-header')
     Users <small>{{ trans('app.manage') }}</small>
@@ -6,6 +6,12 @@
 
 @section('content')
 
+
+@if (session('alert'))
+<div class="alert alert-success">
+    {{ session('alert') }}
+</div>
+@endif
     <div class="mB-20">
         <a href="{{ route('admin.create') }}" class="btn btn-info">
             {{ trans('app.add_button') }}
