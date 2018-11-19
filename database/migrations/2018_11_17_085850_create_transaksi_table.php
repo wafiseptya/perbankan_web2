@@ -15,6 +15,11 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama');
+            $table->integer('nominal');
+            $table->enum('jenis', ['tarikan', 'setoran']);
+            $table->unsignedInteger('rekening_id');
+            $table->foreign('rekening_id')->references('id')->on('rekening')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -18,15 +18,12 @@ class CreateNasabahTable extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('birth_place');
-            $table->string('birth_date');
-            $table->string('address');
+            $table->date('birth_date');
             $table->string('post_code');
             $table->string('phone');
             $table->string('ibu_kandung');
-            $table->string('pendapatan');
-            $table->string('pengeluaran');
-            $table->unsignedInteger('id_rekening');
-            $table->foreign('id_rekening')->references('id')->on('rekening')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('pendapatan', ['value1', 'value2', 'value3', 'value4']);
+            $table->enum('pengeluaran', ['value1', 'value2', 'value3', 'value4']);
             $table->timestamps();
         });
     }

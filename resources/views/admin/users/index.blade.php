@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="mB-20">
-        <a href="{{ route(ADMIN . '.users.create') }}" class="btn btn-info">
+        <a href="{{ route('admin.create') }}" class="btn btn-info">
             {{ trans('app.add_button') }}
         </a>
     </div>
@@ -36,17 +36,17 @@
             <tbody>
                 @foreach ($items as $item)
                     <tr>
-                        <td><a href="{{ route(ADMIN . '.users.edit', $item->id) }}">{{ $item->name }}</a></td>
+                        <td><a href="{{ route('admin.edit', $item->id) }}">{{ $item->name }}</a></td>
                         <td>{{ $item->email }}</td>
 						<td>{{ $item->role }}</td>
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a href="{{ route(ADMIN . '.users.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm"><span class="ti-pencil"></span></a></li>
+                                    <a href="{{ route('admin.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm"><span class="ti-pencil"></span></a></li>
                                 <li class="list-inline-item">
                                     {!! Form::open([
                                         'class'=>'delete',
-                                        'url'  => route(ADMIN . '.users.destroy', $item->id), 
+                                        'url'  => route('admin.destroy', $item->id), 
                                         'method' => 'DELETE',
                                         ]) 
                                     !!}

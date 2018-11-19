@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'bio', 'role'
+        'name', 'username', 'password', 'avatar', 'role'
     ];
 
     /**
@@ -35,7 +35,7 @@ class User extends Authenticatable
     public static function rules($update = false, $id = null)
     {
         $commun = [
-            'email'    => "required|email|unique:users,email,$id",
+            'username'    => "required|unique:users,username,$id",
             'password' => 'nullable|confirmed',
             'avatar' => 'image',
         ];
@@ -45,7 +45,7 @@ class User extends Authenticatable
         }
 
         return array_merge($commun, [
-            'email'    => 'required|email|max:255|unique:users',
+            'username'    => 'required|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }

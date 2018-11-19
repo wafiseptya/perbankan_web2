@@ -8,33 +8,42 @@ Auth::routes();
 | Admin
 |------------------------------------------------------------------------------------
 */
-Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Role:10']], function () {
-    Route::get('/', 'DashboardController@index')->name('dash');
-    Route::resource('users', 'UserController');
-});
+// Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Role:10']], function () {
+//     Route::get('/', 'DashboardController@index')->name('dash');
+//     Route::resource('users', 'UserController');
+// });
 
-Route::group(['middleware' => 'App\Http\Middleware\Admin'], function() {
+Route::middleware(['admin'])->group(function () {
     Route::resource('admin', 'UserController');
 });
 
-Route::group(['middleware' => 'App\Http\Middleware\Teller'], function() {
-    Route::resource('teller', 'TellerController');
+Route::middleware(['teller'])->group(function () {
+    Route::get('teller/tarik', 'TellerController@tarik')->name('teller.tarik');
+    Route::get('teller/setor', 'TellerController@setor')->name('teller.setor');
+    Route::put('teller/proses', 'TellerController@update')->name('teller.update');
+    Route::resource('teller', 'TellerController')->except([
+        'update'
+    ]);    
 });
 
-Route::group(['middleware' => 'App\Http\Middleware\CustomerService'], function() {
+Route::middleware(['cs'])->group(function () {
     Route::resource('cs', 'CSController');
 });
 
 
+Route::get('/forbid', function () {
+    return view('unauthorized');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/teller', function () {
-    return view('admin.teller.teller-index');
-});
-Route::get('/admins', function () {
-    return view('admin.admin.admin-page');
-});
-Route::get('/penarikan', function () {
-    return view('admin.teller.teller-penarikan');
-});
+// Route::get('/teller', function () {
+//     return view('admin.teller.teller-index');
+// });
+// Route::get('/admins', function () {
+//     return view('admin.admin.admin-page');
+// });
+// Route::get('/penarikan', function () {
+//     return view('admin.teller.teller-penarikan');
+// });

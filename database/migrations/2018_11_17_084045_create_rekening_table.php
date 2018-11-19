@@ -15,6 +15,11 @@ class CreateRekeningTable extends Migration
     {
         Schema::create('rekening', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('saldo');
+            $table->bigInteger('no_rekening');
+            $table->string('pin');
+            $table->unsignedInteger('nasabah_id');
+            $table->foreign('nasabah_id')->references('id')->on('nasabah')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

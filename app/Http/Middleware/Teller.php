@@ -15,9 +15,9 @@ class Teller
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && $request->user()->type != 'teller')
+        if ($request->user() && $request->user()->role != 'teller')
         {
-            return new Response(view('unauthorized')->with('role', 'TELLER'));
+            return redirect('forbid');
         }
         return $next($request);
     }

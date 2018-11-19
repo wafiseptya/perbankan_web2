@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CustomerSupport
+class CustomerService
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,9 @@ class CustomerSupport
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && $request->user()->type != 'cs')
+        if ($request->user() && $request->user()->role != 'cs')
         {
-            return new Response(view('unauthorized')->with('role', 'CS'));
+            return redirect('forbid');
         }
         return $next($request);
     }
