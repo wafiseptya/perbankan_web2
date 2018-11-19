@@ -1,4 +1,4 @@
-@extends('admin.default')
+@extends('admin.teller')
 
 @section('page-header', 'Teller')
 @section('content')

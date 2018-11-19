@@ -8,8 +8,9 @@ return [
     ],
 
     'role' => [
-        '0' => 'User',
-        '10' => 'Admin',
+        'admin' => 'Admin',
+        'teller' => 'Teller',
+        'cs' => 'Customer Service',
     ],
     
     'status' => [
@@ -17,13 +18,6 @@ return [
         '0' => 'Inactive',
     ],
 
-    'avatar' => [
-        'public' => '/storage/avatar/',
-        'folder' => 'avatar',
-        
-        'width'  => 400,
-        'height' => 400,
-    ],
 
     /*
     |------------------------------------------------------------------------------------

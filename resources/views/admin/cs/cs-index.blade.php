@@ -1,6 +1,6 @@
-@extends('admin.teller')
+@extends('admin.cs')
 
-@section('page-header', 'Teller')
+@section('page-header', 'Customer Service')
 @section('content')
 
     <div class="row gap-20 masonry pos-r justify-content-center">
@@ -58,9 +58,10 @@
             <thead>
                 <tr>
                     <th>Nama</th>
-                    <th>Jenis Transaksi</th>
-				          	<th>Nominal</th>
-                    <th>Waktu</th>
+                    <th>Alamat</th>
+				          	<th>Phone</th>
+				          	<th>No. Rekening</th>
+                    <th>Waktu Buat</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -68,16 +69,19 @@
             <tbody>
                 @foreach ($items as $item)
                     <tr>
-                        <td>{{ $item->nama }}</td>
-                        <td>{{ $item->jenis }}</td>
-						            <td>{{ $item->nominal }}</td>
+                        <td><a href="{{ route('cs.show', $item->id) }}">{{ $item->nama }}</a></td>
+                        <td>{{ $item->alamat }}</td>
+                        <td>{{ $item->phone }}</td>
+						            <td>{{ $item->rekening->no_rekening }}</td>
 						            <td>{{ $item->created_at }}</td>
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
+                                    <a href="{{ route('cs.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm"><span class="ti-pencil"></span></a></li>
+                                <li class="list-inline-item">
                                     {!! Form::open([
                                         'class'=>'delete',
-                                        'url'  => route('teller.destroy', $item->id), 
+                                        'url'  => route('cs.destroy', $item->id), 
                                         'method' => 'DELETE',
                                         ]) 
                                     !!}

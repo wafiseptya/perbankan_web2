@@ -42,7 +42,7 @@ class UserController extends Controller
         
         User::create($request->all());
 
-        return back()->withSuccess(trans('app.success_store'));
+        return redirect()->route('admin.index')->with('alert','User Berhasil Dibuat!');
     }
 
     /**
@@ -84,7 +84,7 @@ class UserController extends Controller
 
         $item->update($request->all());
 
-        return redirect()->route(ADMIN . '.users.index')->withSuccess(trans('app.success_update'));
+        return redirect()->route('admin.index')->with('alert','User Berhasil Diperbarui!');
     }
 
     /**
@@ -97,7 +97,7 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        return back()->withSuccess(trans('app.success_destroy')); 
+        return redirect()->route('admin.index')->with('alert','User Berhasil Dihapus!'); 
     }
 }
 
