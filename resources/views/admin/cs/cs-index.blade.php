@@ -14,10 +14,10 @@
             <div class="row gap-20">
                 <!-- #Toatl Visits ==================== -->
           <!-- #Toatl Visits ==================== -->
-          <div class='col-md-3'>
+          <div class='col-md-3 mB-20'>
               <div class="layers bd bgc-white p-20">
                   <div class="layer w-100 mB-10">
-                      <h6 class="lh-1">Total Visits</h6>
+                      <h6 class="lh-1">Total Nasabah</h6>
                   </div>
                   <div class="layer w-100">
                       <div class="peers ai-sb fxw-nw">
@@ -25,26 +25,7 @@
                               <span id="sparklinedash"></span>
                           </div>
                           <div class="peer">
-                              <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">+10%</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          <!-- #Total Page Views ==================== -->
-          <div class='col-md-3'>
-              <div class="layers bd bgc-white p-20">
-                  <div class="layer w-100 mB-10">
-                      <h6 class="lh-1">Total Page Views</h6>
-                  </div>
-                  <div class="layer w-100">
-                      <div class="peers ai-sb fxw-nw">
-                          <div class="peer peer-greed">
-                              <span id="sparklinedash2"></span>
-                          </div>
-                          <div class="peer">
-                              <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">-7%</span>
+                              <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-25 pY-25 bgc-green-50 c-green-500 fsz-xl">{{$items->count()}}</span>
                           </div>
                       </div>
                   </div>

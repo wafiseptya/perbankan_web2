@@ -14,10 +14,10 @@
             <div class="row gap-20">
                 <!-- #Toatl Visits ==================== -->
           <!-- #Toatl Visits ==================== -->
-          <div class='col-md-3'>
+          <div class='col-md-3 mB-20'>
               <div class="layers bd bgc-white p-20">
                   <div class="layer w-100 mB-10">
-                      <h6 class="lh-1">Total Visits</h6>
+                      <h6 class="lh-1">Total Transaksi</h6>
                   </div>
                   <div class="layer w-100">
                       <div class="peers ai-sb fxw-nw">
@@ -25,7 +25,7 @@
                               <span id="sparklinedash"></span>
                           </div>
                           <div class="peer">
-                              <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">+10%</span>
+                              <span class="d-ib lh-0 va-m fw-600 fsz-xl bdrs-10em pX-25 pY-25 bgc-green-50 c-green-500">{{$items->count()}}</span>
                           </div>
                       </div>
                   </div>
@@ -36,7 +36,7 @@
           <div class='col-md-3'>
               <div class="layers bd bgc-white p-20">
                   <div class="layer w-100 mB-10">
-                      <h6 class="lh-1">Total Page Views</h6>
+                      <h6 class="lh-1">Total Setoran</h6>
                   </div>
                   <div class="layer w-100">
                       <div class="peers ai-sb fxw-nw">
@@ -44,7 +44,25 @@
                               <span id="sparklinedash2"></span>
                           </div>
                           <div class="peer">
-                              <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">-7%</span>
+                              <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-25 pY-25 bgc-purple-50 c-purple-500 fsz-xl">{{$items->where('jenis', 'setoran')->count()}}</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class='col-md-3'>
+              <div class="layers bd bgc-white p-20">
+                  <div class="layer w-100 mB-10">
+                      <h6 class="lh-1">Total Tarikan</h6>
+                  </div>
+                  <div class="layer w-100">
+                      <div class="peers ai-sb fxw-nw">
+                          <div class="peer peer-greed">
+                              <span id="sparklinedash3"></span>
+                          </div>
+                          <div class="peer">
+                              <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-25 pY-25 fsz-xl bgc-blue-50 c-blue-500">{{$items->where('jenis', 'tarikan')->count()}}</span>
                           </div>
                       </div>
                   </div>
