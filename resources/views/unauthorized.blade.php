@@ -73,12 +73,17 @@
                 </div>
 
                 <div class="links">
-                    <a href="#" id="back">Go Back</a>
+                    <a href="javascript:history.back()" id="back">Go Back</a>
                 </div>
             </div>
         </div>
     </body>
     <script>
-    
+        $(document).ready(function(){
+            $('a#back').on('click', function(e){
+                e.preventDefault();
+                window.history.back();
+            });
+        });
     </script>
 </html>
