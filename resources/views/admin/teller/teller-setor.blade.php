@@ -21,17 +21,17 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                     <label for="inputName">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" required>
                     </div>
                     <div class="form-group col-md-12">
                       <label for="inputNoRek">Nomor Rekening</label>
-                      <input type="number" class="form-control" id="no_rekening" name="no_rekening" placeholder="Nomor Rekening">
+                      <input type="number" class="form-control" id="no_rekening" name="no_rekening" placeholder="Nomor Rekening" required>
                       <input type="hidden" id="jenis" name="jenis" value="setoran">
                     </div>
                   </div>
                   <div class="form-group ">
                     <label for="inputTarikan">Nominal Setoran</label>
-                    <input type="number"  class="form-control" id="nominal" name="nominal" placeholder="Rp">
+                    <input type="number"  class="form-control" id="nominal" name="nominal" placeholder="Rp" required>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
