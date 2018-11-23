@@ -12,7 +12,7 @@
 		])
 	!!}
 
-		@include('admin.users.form')
+		@include('admin.users.form-edit')
 
 		<button type="submit" class="btn btn-primary">{{ trans('app.edit_button') }}</button>
 		

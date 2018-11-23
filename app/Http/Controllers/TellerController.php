@@ -91,33 +91,38 @@ class TellerController extends Controller
     public function update(Request $request)
     {
         $norek = $request->no_rekening;
-        $data = Rekening::where('no_rekening',$norek)->first();
-        $id_rek = $data->id;
-        $saldo = $data->saldo;
-        
-        if ($request->jenis == 'tarikan')
+        if (Rekening::where('no_rekening', '=', $norek)->exists())
         {
-            if (Hash::check($request->pin, $data->pin)) {
-                if ($request->nominal < $saldo)
-                {
-                    $data->saldo = $data->saldo - $request->nominal;
-                    $data->save();
-                    $this->store($request, $id_rek);
-                    return redirect()->route('teller.index')->with('alert','Transaksi Berhasil Dilakukan!');
-                }else {
-                    return back()->with('alert', 'Saldo Tidak Mencukupi');
+            $data = Rekening::where('no_rekening',$norek)->first();
+            $id_rek = $data->id;
+            $saldo = $data->saldo;
+            
+            if ($request->jenis == 'tarikan')
+            {
+                if (Hash::check($request->pin, $data->pin)) {
+                    if ($request->nominal < $saldo)
+                    {
+                        $data->saldo = $data->saldo - $request->nominal;
+                        $data->save();
+                        $this->store($request, $id_rek);
+                        return redirect()->route('teller.index')->with('alert','Transaksi Berhasil Dilakukan!');
+                    }else {
+                        return back()->with('alert', 'Saldo Tidak Mencukupi');
+                    }
                 }
+                else {
+                    return back()->with('alert', 'PIN Salah!');
+                }
+            }else {
+                $data->saldo = $data->saldo + $request->nominal;
+                $data->save();
+                $this->store($request, $id_rek);
+                return redirect()->route('teller.index')->with('alert','Transaksi Berhasil Dilakukan!');
             }
-            else {
-                return back()->with('alert', 'PIN Salah!');
-            }
-        }else {
-            $data->saldo = $data->saldo + $request->nominal;
-            $data->save();
-            $this->store($request, $id_rek);
-            return redirect()->route('teller.index')->with('alert','Transaksi Berhasil Dilakukan!');
+        } else 
+        {
+            return back()->with('alert', 'Rekening tidak ditemukan');
         }
-        
     }
 
     /**
